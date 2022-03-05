@@ -1,0 +1,5 @@
+#!/bin/bash
+echo 'addSbtPlugin("com.eed3si9n" % "sbt-assembly" % "0.14.8")' > ./project/assembly.sbt
+sbt clean assembly
+sbt package
+mv ./target/scala-2.13/Trivial-TimedInput-assembly-0.1.0-SNAPSHOT.jar ./Trivial-TimedInput.jar
