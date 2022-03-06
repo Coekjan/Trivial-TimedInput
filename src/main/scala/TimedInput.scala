@@ -23,7 +23,7 @@ class TimedInput(private val inputStream: InputStream) extends Runnable {
       reader.readLine()
     }.takeWhile(Option(_).nonEmpty).map { line =>
       val (millis, message) = line match {
-        case timedMessagePattern(millis, message) => ((millis.toDouble * 1000).toLong, message)
+        case timedMessagePattern(seconds, message) => ((seconds.toDouble * 1000).toLong, message)
         case _ => throw TimedMessageFormatError(line)
       }
       Future {
